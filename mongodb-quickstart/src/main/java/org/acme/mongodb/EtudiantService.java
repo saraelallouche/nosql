@@ -24,6 +24,7 @@ public class EtudiantService {
             while (cursor.hasNext()) {
                 Document document = cursor.next();
                 Etudiant etudiant = new Etudiant();
+                etudiant.setId(document.getInteger("_id"));
                 etudiant.setPrenom(document.getString("prenom"));
                 etudiant.setNom(document.getString("nom"));
                 etudiant.setAge(document.getString("age"));
@@ -39,6 +40,7 @@ public class EtudiantService {
 
     public void add(Etudiant etudiant) {
         Document document = new Document()
+                .append("_id",etudiant.getId())
                 .append("nom", etudiant.getNom())
                 .append("prenom", etudiant.getPrenom())
         .append("age", etudiant.getAge())

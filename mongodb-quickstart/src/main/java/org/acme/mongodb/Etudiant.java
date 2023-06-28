@@ -4,13 +4,17 @@ import java.util.Objects;
 
 
 public class Etudiant {
+
+    private Integer id;
+
     private String nom;
     private String  prenom;
     private String sexe;
     private String age;
     private String matricule;
 
-    public Etudiant(String nom,String  prenom, String sexe,String age,String matricule) {
+    public Etudiant(Integer id,String nom,String  prenom, String sexe,String age,String matricule) {
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.sexe = sexe;
@@ -20,6 +24,14 @@ public class Etudiant {
 
 
     public Etudiant() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -63,16 +75,15 @@ public class Etudiant {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Etudiant eudiant = (Etudiant) object;
-        return java.util.Objects.equals(nom, eudiant.nom) && java.util.Objects.equals(prenom, eudiant.prenom) && java.util.Objects.equals(sexe, eudiant.sexe) && java.util.Objects.equals(age, eudiant.age) && java.util.Objects.equals(matricule, eudiant.matricule);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Etudiant etudiant = (Etudiant) o;
+        return Objects.equals(id, etudiant.id) && Objects.equals(nom, etudiant.nom) && Objects.equals(prenom, etudiant.prenom) && Objects.equals(sexe, etudiant.sexe) && Objects.equals(age, etudiant.age) && Objects.equals(matricule, etudiant.matricule);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), nom, prenom, sexe, age, matricule);
+        return Objects.hash(id, nom, prenom, sexe, age, matricule);
     }
 }
