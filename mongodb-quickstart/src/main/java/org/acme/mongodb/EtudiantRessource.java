@@ -7,7 +7,7 @@ import jakarta.ws.rs.Path;
 
 import java.util.List;
 
-@Path("/api/student")
+@Path("")
 public class EtudiantRessource {
 
     @Inject

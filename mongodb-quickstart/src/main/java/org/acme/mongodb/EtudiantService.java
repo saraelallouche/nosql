@@ -25,12 +25,12 @@ public class EtudiantService {
             while (cursor.hasNext()) {
                 Document document = cursor.next();
                 Etudiant etudiant = new Etudiant();
-                etudiant.setId(document.getString("_id"));
+
                 etudiant.setPrenom(document.getString("prenom"));
                 etudiant.setNom(document.getString("nom"));
-                etudiant.setAge(document.getString("age"));
+                etudiant.setAge(document.getInteger("age"));
                 etudiant.setSexe(document.getString("sexe"));
-                etudiant.setMatricule(document.getString("matricule"));
+                etudiant.setMatricule(document.getInteger("matricule"));
                 list.add(etudiant);
             }
         } finally {
@@ -41,7 +41,7 @@ public class EtudiantService {
 
     public void add(Etudiant etudiant) {
         Document document = new Document()
-                .append("_id",etudiant.getId())
+
                 .append("nom", etudiant.getNom())
                 .append("prenom", etudiant.getPrenom())
         .append("age", etudiant.getAge())
@@ -59,6 +59,6 @@ public class EtudiantService {
     }
 
     private MongoCollection getCollection() {
-        return mongoClient.getDatabase("etudiant").getCollection("etudiant");
+        return mongoClient.getDatabase("admin").getCollection("Etudiant");
     }
 }

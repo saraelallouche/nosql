@@ -12,10 +12,10 @@ public class Etudiant {
     private String nom;
     private String  prenom;
     private String sexe;
-    private String age;
-    private String matricule;
+    private Integer age;
+    private Integer matricule;
 
-    public Etudiant(String id,String nom,String  prenom, String sexe,String age,String matricule) {
+    public Etudiant(String id,String nom,String  prenom, String sexe,Integer age,Integer matricule) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -60,19 +60,19 @@ public class Etudiant {
         this.sexe = sexe;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public String getMatricule() {
+    public Integer getMatricule() {
         return matricule;
     }
 
-    public void setMatricule(String matricule) {
+    public void setMatricule(Integer matricule) {
         this.matricule = matricule;
     }
 
