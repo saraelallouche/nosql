@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Etudiant {
 
 
-    private Integer id;
+    private String id;
 
     private String nom;
     private String  prenom;
@@ -15,7 +15,7 @@ public class Etudiant {
     private String age;
     private String matricule;
 
-    public Etudiant(Integer id,String nom,String  prenom, String sexe,String age,String matricule) {
+    public Etudiant(String id,String nom,String  prenom, String sexe,String age,String matricule) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -28,11 +28,11 @@ public class Etudiant {
     public Etudiant() {
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

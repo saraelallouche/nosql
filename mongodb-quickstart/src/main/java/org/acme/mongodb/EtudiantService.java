@@ -25,7 +25,7 @@ public class EtudiantService {
             while (cursor.hasNext()) {
                 Document document = cursor.next();
                 Etudiant etudiant = new Etudiant();
-                etudiant.setId(document.getInteger("_id"));
+                etudiant.setId(document.getString("_id"));
                 etudiant.setPrenom(document.getString("prenom"));
                 etudiant.setNom(document.getString("nom"));
                 etudiant.setAge(document.getString("age"));
@@ -51,6 +51,8 @@ public class EtudiantService {
     }
 
     public Etudiant getEtudiant(Integer id){
+        MongoCursor<Document> cursor = getCollection().find().iterator();
+
         Etudiant etudiant = new Etudiant();
         return etudiant;
 
