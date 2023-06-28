@@ -5,7 +5,18 @@ public class Cours {
 
     private String nom;
 
-    public Cours(String nom) {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    private Integer id;
+
+    public Cours(Integer id, String nom) {
+        this.id = id;
         this.nom = nom;
     }
 
@@ -18,16 +29,15 @@ public class Cours {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-        Cours cours = (Cours) object;
-        return java.util.Objects.equals(nom, cours.nom);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cours cours = (Cours) o;
+        return Objects.equals(nom, cours.nom) && Objects.equals(id, cours.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), nom);
+        return Objects.hash(nom, id);
     }
 }

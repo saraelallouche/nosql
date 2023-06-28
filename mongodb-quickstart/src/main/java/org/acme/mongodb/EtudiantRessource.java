@@ -7,18 +7,27 @@ import jakarta.ws.rs.Path;
 
 import java.util.List;
 
-@Path("/etudiants")
+@Path("/api/student")
 public class EtudiantRessource {
 
     @Inject
     EtudiantService etudiantService;
 
     @GET
+    @Path("/api/student")
     public List<Etudiant> list() {
         return etudiantService.list();
     }
 
+    @GET
+    @Path("/api/student/{id}")
+    public Etudiant GetEtudiantById(Integer id) {
+        return etudiantService.getEtudiant(id);
+    }
+
+
     @POST
+    @Path("api/student")
     public List<Etudiant> add(Etudiant etudiant) {
         etudiantService.add(etudiant);
         return list();

@@ -3,6 +3,9 @@ import java.util.Objects;
 
 public class Note {
 
+    private Float note;
+
+
     public Note() {
     }
 
@@ -10,7 +13,7 @@ public class Note {
         this.note = note;
     }
 
-    private Float note;
+
 
     public Float getNote() {
         return note;
